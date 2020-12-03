@@ -1,10 +1,10 @@
 import express from "express";
 const router = express.Router();
 import httpHandler from "../utils/httpHandler.js";
-import userController from "../services/users.js";
+import userController from "../controllers/userController.js";
 
-/* GET users listing. */
-router.get("/users/:id", httpHandler(userController.findUser));
-
+router.get("/:id", httpHandler(userController.find));
+router.get("/:id/balance", httpHandler(userController.balance));
+router.post("/:id/:type", httpHandler(userController.createTransaction));
 
 export default router;

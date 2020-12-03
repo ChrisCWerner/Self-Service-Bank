@@ -7,7 +7,7 @@ export const Users = [
     birthdate: "1996-11-08",
     account: {
       id: "0001",
-      balance: 58.22,
+      balance: 104.24,
       currency: "BLR",
       created_at: new Date(2020, 11, 8),
       updated_at: new Date(2020, 11, 2),
@@ -47,7 +47,7 @@ export const Transactions = [
     id: "4",
     user: "78",
     type: "payment",
-    value: 57.64,
+    value: 58.22,
     currency: "BLR",
     timestamp: new Date(2020, 10, 25),
   },
