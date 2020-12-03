@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+import express from "express";
+const router = express.Router();
+import httpHandler from "../utils/httpHandler.js";
+import userController from "../services/users.js";
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+router.get("/users/:id", httpHandler(userController.findUser));
 
-module.exports = router;
+
+export default router;
