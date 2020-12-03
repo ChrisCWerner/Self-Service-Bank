@@ -1,4 +1,4 @@
-# Self-Service Bank WebApp
+# Self-Service Banking WebApp
 
 ## Build Setup
 
