@@ -1,15 +1,13 @@
 import dotenv from "dotenv";
 dotenv.config();
 import express from "express";
-import cookieParser from "cookie-parser";
+import bodyParser from "body-parser";
 
 import usersRouter from "./routes/users.js";
 
 const app = express();
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+app.use(bodyParser.json());
 
 // app.use("/", indexRouter);
 app.use("/users", usersRouter);
