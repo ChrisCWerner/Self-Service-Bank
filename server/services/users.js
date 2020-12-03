@@ -21,14 +21,18 @@ class UserServices {
 
   async createTransaction(payload) {
     const { user, type, value, currency } = payload;
-    if (!user || !transactionTypes.includes(type) || !value || !currency)
+    console.log(payload);
+    if (!user || !transactionTypes.includes(type) || isNaN(value) || !currency)
       throw Err({ status: 400, message: "Invalid transaction" });
 
-    const userData = await this.find(user);
+    const userData = await this.find({ id: user });
 
-    if (!userData) throw Err({ status: 404, message: "User not found" });
+    if (!userData.id) throw userData;
     if (userData.account.currency !== currency)
-      throw Err({ status: 400, message: "Invalid currency" });
+      throw Err({
+        status: 400,
+        message: "Invalid currency, expected " + userData.account.currency,
+      });
 
     if (type === "deposit") {
       userData.account.balance += value;

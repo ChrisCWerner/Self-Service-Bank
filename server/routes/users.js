@@ -5,6 +5,6 @@ import userController from "../controllers/userController.js";
 
 router.get("/:id", httpHandler(userController.find));
 router.get("/:id/balance", httpHandler(userController.balance));
-router.post("/:id/:type", httpHandler(userController.createTransaction));
+router.post("/:user/:type", httpHandler(userController.createTransaction));
 
 export default router;

@@ -10,7 +10,7 @@ class TransactionServices {
       (transaction) => transaction.id === id
     );
     if (!transaction)
-      throw Err({ status: 404, message: "Transaction not fount" });
+      throw Err({ status: 404, message: "Transaction not found" });
     return transaction;
   }
 
@@ -20,8 +20,6 @@ class TransactionServices {
     let transaction = await Transactions.filter(
       (transaction) => transaction.user === user
     );
-    if (!transaction.length)
-      throw Err({ status: 404, message: "Transaction not fount" });
     return transaction;
   }
 
