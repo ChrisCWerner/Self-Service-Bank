@@ -1,6 +1,6 @@
-const Catcher = (fn, handler) => {
+const Catcher = async (fn, handler) => {
   try {
-    fn();
+    await fn();
   } catch (err) {
     console.error(err);
     handler(err);
