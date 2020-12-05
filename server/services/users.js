@@ -45,7 +45,7 @@ class UserServices {
     await transactionServices.create({
       user,
       type,
-      value,
+      value: Number(value),
       currency,
     });
     return userData;

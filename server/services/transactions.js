@@ -19,7 +19,7 @@ class TransactionServices {
     // simulando query pro bd...
     let transaction = await Transactions.filter(
       (transaction) => transaction.user === user
-    );
+    ).reverse();
     return transaction;
   }
 
@@ -28,7 +28,7 @@ class TransactionServices {
     if (!user || !transactionTypes.includes(type) || !value || !currency)
       return Err({ status: 400, message: "Invalid transaction" });
     const id = (Transactions.length + 1).toString();
-    const data = { user, type, value, currency, id, timestamp: Date.now() };
+    const data = { user, type, value, currency, id, timestamp: new Date() };
     await Transactions.push(data);
     return data;
   }
