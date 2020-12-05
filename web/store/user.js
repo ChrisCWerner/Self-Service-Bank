@@ -4,6 +4,8 @@ export const state = () => ({
 
 export const getters = {
   user: (state) => state.user || {},
+  id: (state) => state.user?.id,
+  balance: (state) => state.user?.account,
 }
 
 export const mutations = {

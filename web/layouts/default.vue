@@ -46,8 +46,16 @@
     <!-- Sizes your content based upon application components -->
     <v-main>
       <!-- Provides the application the proper gutter -->
-      <v-container fluid>
-        <Nuxt />
+      <v-container class="content" fluid>
+        <div v-if="loading" class="content-height loader">
+          <v-progress-circular
+            :size="88"
+            :width="8"
+            color="#3B82F6"
+            indeterminate
+          />
+        </div>
+        <Nuxt v-else />
       </v-container>
     </v-main>
   </v-app>
@@ -61,6 +69,9 @@ export default {
     }
   },
   computed: {
+    loading() {
+      return !this.user.id
+    },
     user() {
       return this.$store.getters['user/user']
     },
@@ -70,6 +81,17 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.content {
+  min-height: 100%;
+}
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>
 
 <style>
 html {
@@ -90,33 +112,7 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.content-height {
+  min-height: calc(100vh - 88px);
 }
 </style>
