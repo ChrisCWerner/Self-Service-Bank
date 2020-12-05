@@ -39,8 +39,8 @@
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title>Auto Atendimento</v-toolbar-title>
       <v-spacer />
-      <span class="title mx-2">{{ user.nickname }}</span>
-      <v-avatar :size="36"><v-img src="chris.jpg" /></v-avatar>
+      <span class="title mx-2" v-text="user.nickname" />
+      <v-avatar :size="36"><v-img :src="user.avatar" /></v-avatar>
     </v-app-bar>
 
     <!-- Sizes your content based upon application components -->
@@ -58,11 +58,15 @@ export default {
   data() {
     return {
       drawer: true,
-      user: {},
     }
   },
+  computed: {
+    user() {
+      return this.$store.getters['user/user']
+    },
+  },
   mounted() {
-    this.user = JSON.parse(localStorage.getItem('user')) || {}
+    this.$store.dispatch('user/getUser', { id: '78' })
   },
 }
 </script>
