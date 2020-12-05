@@ -90,6 +90,7 @@ export default {
       )
       console.log(res)
       // todo redirect to transactions
+      // todo refresh user
     },
   },
 }

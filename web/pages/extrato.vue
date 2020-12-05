@@ -14,9 +14,15 @@
           <v-icon>{{ types[transaction.type].icon }}</v-icon>
         </v-card-title>
         <v-card-text>
-          <span class="font-weight-bold">Valor: </span
-          >{{ niceValue(transaction) }}</v-card-text
-        >
+          <p>
+            <span class="font-weight-bold">Valor: </span
+            >{{ niceValue(transaction) }}
+          </p>
+          <p>
+            <span class="font-weight-bold">Data: </span
+            >{{ niceDate(transaction.timestamp) }}
+          </p>
+        </v-card-text>
       </v-card>
     </div>
   </div>
@@ -24,6 +30,7 @@
 
 <script>
 import { niceValue } from '~/utils/niceValue'
+import { niceDate } from '~/utils/niceDate'
 export default {
   data() {
     return {
@@ -38,7 +45,7 @@ export default {
           icon: 'mdi-export',
         },
         payment: {
-          text: 'Depósito',
+          text: 'Pagamento',
           icon: 'mdi-cash',
         },
       },
@@ -53,6 +60,7 @@ export default {
     this.fetchTransactions()
   },
   methods: {
+    niceDate,
     niceValue,
     async fetchTransactions() {
       const res = await this.$axios('transactions/user/' + this.user.id)

@@ -2,7 +2,6 @@
   <div class="content-height">
     <span class="title">Depósito</span>
     <ActionCard
-      ref="card"
       card-title="Informe a quantia"
       input-label="Valor do depósito"
       :input-rules="[
