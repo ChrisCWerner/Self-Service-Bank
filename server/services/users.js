@@ -35,11 +35,11 @@ class UserServices {
       });
 
     if (type === "deposit") {
-      userData.account.balance += value;
-    } else if (userData.account.balance < value) {
+      userData.account.balance += Number(value);
+    } else if (userData.account.balance < Number(value)) {
       throw Err({ status: 400, message: "Not enough funds" });
     } else {
-      userData.account.balance -= value;
+      userData.account.balance -= Number(value);
     }
 
     await transactionServices.create({
