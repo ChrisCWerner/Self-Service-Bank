@@ -9,7 +9,7 @@ export const Users = [
     account: {
       id: "0001",
       balance: 104.24,
-      currency: "BLR",
+      currency: "BRL",
       created_at: new Date(2020, 11, 8),
       updated_at: new Date(2020, 11, 2),
     },
@@ -25,7 +25,7 @@ export const Transactions = [
     user: "78",
     type: "deposit",
     value: 233,
-    currency: "BLR",
+    currency: "BRL",
     timestamp: new Date(2020, 10, 22),
   },
   {
@@ -33,7 +33,7 @@ export const Transactions = [
     user: "78",
     type: "redemption",
     value: 12.9,
-    currency: "BLR",
+    currency: "BRL",
     timestamp: new Date(2020, 10, 22),
   },
   {
@@ -41,7 +41,7 @@ export const Transactions = [
     user: "78",
     type: "payment",
     value: 57.64,
-    currency: "BLR",
+    currency: "BRL",
     timestamp: new Date(2020, 10, 25),
   },
   {
@@ -49,7 +49,7 @@ export const Transactions = [
     user: "78",
     type: "payment",
     value: 58.22,
-    currency: "BLR",
+    currency: "BRL",
     timestamp: new Date(2020, 10, 25),
   },
 ];
