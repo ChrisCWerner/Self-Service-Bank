@@ -1,5 +1,5 @@
 <template>
-  <div class="content-height">
+  <div>
     <span class="title">Extrato de transações</span>
     <div class="content">
       <v-card
@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { niceValue } from '~/utils/niceValue'
 export default {
   data() {
     return {
@@ -52,17 +53,12 @@ export default {
     this.fetchTransactions()
   },
   methods: {
+    niceValue,
     async fetchTransactions() {
       const res = await this.$axios('transactions/user/' + this.user.id)
       if (res.status < 400) {
         this.transactions = res.data
       }
-    },
-    niceValue({ value, currency }) {
-      return new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency,
-      }).format(value)
     },
   },
 }
