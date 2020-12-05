@@ -58,6 +58,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://github.com/shakee93/vue-toasted
+    '@nuxtjs/toast',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
@@ -82,6 +84,10 @@ export default {
         },
       },
     },
+  },
+
+  toast: {
+    duration: 3000,
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

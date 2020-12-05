@@ -89,8 +89,14 @@ export default {
         this.form
       )
       console.log(res)
-      // todo redirect to transactions
-      // todo refresh user
+      if (res?.status < 400) {
+        this.$store.commit('user/SET_USER', res.data)
+        this.$toasted.success('Transação efetuada com sucesso.')
+        this.$router.push('extrato')
+      } else {
+        this.$toasted.error('Ocorreu um erro. Tente novamente mais tarde.')
+        console.error(res)
+      }
     },
   },
 }

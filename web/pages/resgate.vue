@@ -8,6 +8,8 @@
         (v) =>
           v <= balance.balance ||
           'Valor máximo disponível é ' + niceValue(balance),
+        (v) =>
+          v > 0 || 'Resgate mínimo de ' + niceValue({ value: 0.01, currency }),
       ]"
       action-text="Resgatar"
       action-type="redemption"

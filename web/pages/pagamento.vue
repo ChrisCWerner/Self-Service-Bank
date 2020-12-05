@@ -8,6 +8,9 @@
         (v) =>
           v <= balance.balance ||
           'Valor máximo disponível é ' + niceValue(balance),
+        (v) =>
+          v > 0 ||
+          'Pagamento mínimo de ' + niceValue({ value: 0.01, currency }),
       ]"
       action-text="Pagar"
       action-type="payment"
