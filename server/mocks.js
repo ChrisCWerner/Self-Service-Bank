@@ -3,6 +3,7 @@ export const Users = [
     id: "78",
     nickname: "Chris",
     fullName: "Christian Werner",
+    avatar: "chris.jpg",
     email: "ccwerner96@gmail.com",
     birthdate: "1996-11-08",
     account: {
